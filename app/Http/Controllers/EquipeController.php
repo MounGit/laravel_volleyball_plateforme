@@ -18,9 +18,8 @@ class EquipeController extends Controller
     public function index()
     {
         $equipe = Equipe::all();
-        $joueur = count(Joueur::all());
-        $role = Role::all();
-        return view('pages.Equipes.equipe', compact('equipe', 'joueur', 'role'));
+        // $role = Role::all();
+        return view('pages.Equipes.equipe', compact('equipe'));
     
     }
 

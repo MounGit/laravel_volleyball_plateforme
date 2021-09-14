@@ -21,8 +21,7 @@ class JoueurController extends Controller
     public function index()
     {
         $joueur = Joueur::all();
-        $equipe = Equipe::all();
-        return view('pages.Joueurs.joueur', compact('joueur', 'equipe'));
+        return view('pages.Joueurs.joueur', compact('joueur'));
     }
 
     /**
@@ -34,8 +33,7 @@ class JoueurController extends Controller
     {
         $role = Role::all();
         $equipe = Equipe::all();
-        $photo = Photo::all();
-        return view('pages.Joueurs.joueurCreate', compact('role', 'equipe', 'photo'));
+        return view('pages.Joueurs.joueurCreate', compact('role', 'equipe'));
     }
 
     /**
@@ -71,7 +69,6 @@ class JoueurController extends Controller
 
         $request->validate([
             "url" => "required",
-            // "joueur_id" => "required"
         ]);
 
         $photo = new Photo;
@@ -94,10 +91,9 @@ class JoueurController extends Controller
      */
     public function show(Joueur $joueur)
     {
-        $photo = Photo::all();
         $role = Role::all();
         $equipe = Equipe::all();
-        return view('pages.Joueurs.joueurShow', compact('joueur', 'photo', 'role', 'equipe'));
+        return view('pages.Joueurs.joueurShow', compact('joueur', 'role', 'equipe'));
     }
 
     /**
@@ -108,10 +104,10 @@ class JoueurController extends Controller
      */
     public function edit(Joueur $joueur)
     {
-        $role = Role::all();
+        // $role = Role::all();
         $equipe = Equipe::all();
-        $photo = Photo::all();
-        return view('pages.Joueurs.joueurEdit', compact('joueur', 'role', 'equipe', 'photo'));
+        // $photo = Photo::all();
+        return view('pages.Joueurs.joueurEdit', compact('joueur', 'equipe'));
     }
 
     /**

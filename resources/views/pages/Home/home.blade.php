@@ -116,7 +116,7 @@
             $d = 0;
         @endphp
         @foreach ($joueur as $data)
-            @if ($data->gender == "Femme" && $d <5)
+            @if ($data->gender == "Femme" && $data->equipe_id != NULL  && $d <5)
                 @php
                     $d++;
                 @endphp
@@ -138,7 +138,7 @@
             $e = 0;
         @endphp
         @foreach ($joueur as $data)
-            @if ($data->gender == "Homme" && $e < 5)
+            @if ($data->gender == "Homme" && $data->equipe_id != NULL && $e < 5)
                 @php
                     $e++;
                 @endphp
